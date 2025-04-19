@@ -42,13 +42,16 @@ function Article() {
             })
         };
         comments.push(commentObject);
-        const temp=await comments.sort((a,b)=>{
+        await comments.sort((a,b)=>{
             return new Date(b.date).getTime()-new Date(a.date).getTime();
         })
-        setComments([...temp]);
         setNewComment("");
-        console.log(temp);
+        console.log(comments);
     };
+
+    useEffect(()=>{
+        console.log("Comment added")
+    },[comments]);
 
     return (
         <>

@@ -34,7 +34,7 @@ const Index = () => {
     <div className="min-h-screen bg-gray-100">
       <Navbar />
       {/* <SubNavbar /> */}
-      <main className="news-container py-8">
+      <main className="news-container py-8 min-h-screen">
         {/* Hero section */}
         <div className="mb-10">
           <h1 className="text-4xl font-bold text-news-primary mb-2">

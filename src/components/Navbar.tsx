@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50 bg-opacity-90">
       <div className="news-container">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
