@@ -46,6 +46,11 @@ function Article() {
             return new Date(b.date).getTime()-new Date(a.date).getTime();
         })
         setNewComment("");
+        toast({
+            title: "Comment Posted Successfully",
+            description: "Your comment on this article has been recorded.",
+            variant: "default"
+        });
         console.log(comments);
     };
 
