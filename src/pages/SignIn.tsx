@@ -193,11 +193,11 @@ const SignIn = () => {
                 Continue with Google
               </Button>
 
-              <div className="mt-4 text-center text-sm">
+              {/* <div className="mt-4 text-center text-sm">
                 <Link to="/forgot-password" className="text-news-primary hover:text-news-accent">
                   Forgot your password?
                 </Link>
-              </div>
+              </div> */}
 
               <div className="mt-6 text-center text-sm">
                 Don't have an account?{' '}
