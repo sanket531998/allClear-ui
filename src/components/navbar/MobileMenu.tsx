@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Category } from '@/data/navCategories';
 import SearchForm from './SearchForm';
+import { useSelector } from 'react-redux';
 
 interface MobileMenuProps {
   categories: Category[];
@@ -26,6 +27,8 @@ const MobileMenu = ({
   const toggleSubcategories = (categoryName: string) => {
     setOpenCategory(openCategory === categoryName ? null : categoryName);
   };
+  const isLoggedIn=useSelector((state: any) => state.login.isLoggedIn);
+  isAdmin = useSelector((state: any) => state.login.isAdmin);
 
   if (!isOpen) return null;
 
@@ -92,18 +95,18 @@ const MobileMenu = ({
                 Admin Portal
               </Link>
             )}
-            <Link
+            {!isLoggedIn && <Link
               to="/signin"
               className="block px-3 py-2 rounded-md text-base font-medium text-news-primary hover:text-news-accent"
             >
               Sign In
-            </Link>
-            <Link
+            </Link>}
+            {/* <Link
               to="/register"
               className="block px-3 py-2 rounded-md text-base font-medium bg-news-primary text-white hover:bg-news-secondary text-center"
             >
               Register
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
