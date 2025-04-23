@@ -62,6 +62,7 @@ const NewsCard = ({ article, expanded = false }: NewsCardProps) => {
   return (
     <Card className="mb-8 overflow-hidden transition-shadow hover:shadow-md hover:border-gray-800">
       <div className="relative">
+      <Link to={`/article/${article.id}`} state={{ article }}> 
         <img
           src={article.image}
           alt={article.title}
@@ -70,11 +71,11 @@ const NewsCard = ({ article, expanded = false }: NewsCardProps) => {
         <div className="absolute top-0 left-0 bg-news-accent text-white px-2 py-1 text-xs">
           {article.category}
         </div>
+      </Link>
       </div>
       <CardContent className="p-4">
       <Link to={`/article/${article.id}`} state={{ article }}> 
         <h2 className="news-header">{article.title}</h2>
-      </Link>
         <div className="flex items-center text-xs text-news-muted mb-3">
           <span className="mr-3">By {article.author}</span>
           <div className="flex items-center mr-3">
@@ -89,6 +90,7 @@ const NewsCard = ({ article, expanded = false }: NewsCardProps) => {
         <p className="news-text">
           {expanded ? article.content : article.summary}
         </p>
+        </Link>
       </CardContent>
       <CardFooter className="px-4 py-3 bg-gray-50 flex justify-between items-center">
         <div className="flex items-center space-x-4">

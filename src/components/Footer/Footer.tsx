@@ -6,7 +6,7 @@ function Footer(){
 
   const hanldeContactUs = async () => {
       try{
-        await navigator.clipboard.writeText("Email Address");
+        await navigator.clipboard.writeText("allclear.live@gmail.com");
         toast({
           title: "Success",
           description: "Email address copied to clipboard. Kindly reach out to us at this email address. We will get back to you as soon as possible.",

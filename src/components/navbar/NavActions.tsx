@@ -40,11 +40,11 @@ const NavActions = ({
           Sign In
         </Button>
       </Link>
-      <Link to="/register">
+      {/* <Link to="/register">
         <Button className="bg-blue-500 text-white hover:bg-news-secondary">
           Register
         </Button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
