@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import Footer from "../components/Footer/Footer";
 import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 import { toast } from '@/components/ui/use-toast';
 
@@ -21,8 +22,17 @@ function Article() {
             setTotalComments((prev) => prev + 3);
         }
     };
+    const isLoggedIn = useSelector((state: { login: { isLoggedIn: boolean } }) => state.login.isLoggedIn);
 
     const handleNewComment = async () => {
+        if (!isLoggedIn) {
+            toast({
+                title: "Login Required",
+                description: "Please login to post a comment.",
+                variant: "destructive"
+            });
+            return;
+        }
         if (newComment.trim() === "") {
             toast({
                 title: "Comment can't be empty",
@@ -42,12 +52,16 @@ function Article() {
             })
         };
         comments.push(commentObject);
-        const temp=await comments.sort((a,b)=>{
+        await comments.sort((a,b)=>{
             return new Date(b.date).getTime()-new Date(a.date).getTime();
         })
-        setComments([...temp]);
         setNewComment("");
-        console.log(temp);
+        toast({
+            title: "Comment Posted Successfully",
+            description: "Your comment on this article has been recorded.",
+            variant: "default"
+        });
+        console.log(comments);
     };
 
     return (
